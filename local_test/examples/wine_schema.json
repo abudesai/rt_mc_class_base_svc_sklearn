@@ -1,0 +1,25 @@
+{
+  "problemCategory": "classification_multi_base",
+  "version": "1.0",
+  "inputDatasets": {
+    "multiClassClassificationBaseMainInput": {
+      "idField": "id",
+      "targetField": "Wine class",
+      "predictorFields": [
+        { "fieldName": "Alcohol", "dataType": "NUMERIC" },
+        { "fieldName": "Malic acid", "dataType": "NUMERIC" },
+        { "fieldName": "Ash", "dataType": "NUMERIC" },
+        { "fieldName": "Alcalinity of ash", "dataType": "NUMERIC" },
+        { "fieldName": "Magnesium", "dataType": "NUMERIC" },
+        { "fieldName": "Total phenols", "dataType": "NUMERIC" },
+        { "fieldName": "Flavanoids", "dataType": "NUMERIC" },
+        { "fieldName": "Nonflavanoid phenols", "dataType": "NUMERIC" },
+        { "fieldName": "Proanthocyanins", "dataType": "NUMERIC" },
+        { "fieldName": "Color intensity", "dataType": "NUMERIC" },
+        { "fieldName": "Hue", "dataType": "NUMERIC" },
+        { "fieldName": "OD280/OD315 of diluted wines", "dataType": "NUMERIC" },
+        { "fieldName": "Proline", "dataType": "NUMERIC" }
+      ]
+    }
+  }
+}

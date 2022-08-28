@@ -1,0 +1,25 @@
+
+local_test/ml_vol/
+local_test/test_results/
+**/artifacts
+ml_vol/outputs/
+
+docker-compose.yaml
+build_and_push.sh
+venv/
+
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+artifacts/

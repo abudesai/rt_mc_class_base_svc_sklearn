@@ -1,0 +1,30 @@
+[
+  {
+    "name": "C",
+    "short_desc": "Inverse of regularization strength; must be a positive float. Like in support vector machines, smaller values specify stronger regularization.",
+    "default": 1.0,
+    "type": "real",
+    "search_type": "uniform",
+    "range_low": 1e-6,
+    "range_high": 2.0,
+    "run_HPO": true
+  },
+  {
+    "name": "kernel",
+    "short_desc": "Specifies the kernel type to be used in the algorithm",
+    "default": "rbf",
+    "type": "categorical",
+    "categorical_vals": ["linear", "poly", "rbf"],
+    "run_HPO": true
+  },
+  {
+    "name": "degree",
+    "short_desc": "Degree of the polynomial kernel function (poly). This argument is ignored for all other kernel functions",
+    "default": 3,
+    "type": "int",
+    "search_type": "uniform",
+    "range_low": 1,
+    "range_high": 4,
+    "run_HPO": true
+  }
+]

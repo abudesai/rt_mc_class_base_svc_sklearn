@@ -1,0 +1,42 @@
+[
+  {
+    "name": "n_estimators",
+    "short_desc": "The number of trees in the forest.",
+    "default": 100,
+    "type": "int",
+    "search_type": "uniform",
+    "range_low": 100,
+    "range_high": 500,
+    "run_HPO": true
+  },
+  {
+    "name": "min_samples_split",
+    "short_desc": "The minimum number of samples required to split an internal node",
+    "default": 2,
+    "type": "int",
+    "search_type": "uniform",
+    "range_low": 2,
+    "range_high": 10,
+    "run_HPO": true
+  },
+
+  {
+    "name": "min_samples_leaf",
+    "short_desc": "The minimum number of samples required to be at a leaf node.",
+    "default": 1,
+    "type": "int",
+    "search_type": "uniform",
+    "range_low": 1,
+    "range_high": 20,
+    "run_HPO": true
+  },
+
+  {
+    "name": "max_features",
+    "short_desc": "The number of features to consider when looking for the best split.",
+    "default": "auto",
+    "type": "categorical",
+    "categorical_vals": ["auto", "sqrt", "log2"],
+    "run_HPO": false
+  }
+]

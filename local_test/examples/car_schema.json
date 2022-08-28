@@ -1,0 +1,18 @@
+{
+  "problemCategory": "classification_multi_base",
+  "version": "1.0",
+  "inputDatasets": {
+    "multiClassClassificationBaseMainInput": {
+      "idField": "id",
+      "targetField": "class",
+      "predictorFields": [
+        { "fieldName": "buying", "dataType": "CATEGORICAL" },
+        { "fieldName": "maint", "dataType": "CATEGORICAL" },
+        { "fieldName": "doors", "dataType": "CATEGORICAL" },
+        { "fieldName": "persons", "dataType": "CATEGORICAL" },
+        { "fieldName": "lug_boot", "dataType": "CATEGORICAL" },
+        { "fieldName": "safety", "dataType": "CATEGORICAL" }
+      ]
+    }
+  }
+}

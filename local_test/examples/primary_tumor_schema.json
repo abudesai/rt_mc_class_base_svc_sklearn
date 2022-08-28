@@ -1,0 +1,29 @@
+{
+  "problemCategory": "classification_multi_base",
+  "version": "1.0",
+  "inputDatasets": {
+    "multiClassClassificationBaseMainInput": {
+      "idField": "id",
+      "targetField": "class",
+      "predictorFields": [
+        { "fieldName": "age", "dataType": "CATEGORICAL" },
+        { "fieldName": "sex", "dataType": "CATEGORICAL" },
+        { "fieldName": "histologic-type", "dataType": "CATEGORICAL" },
+        { "fieldName": "degree-of-diffe", "dataType": "CATEGORICAL" },
+        { "fieldName": "bone", "dataType": "CATEGORICAL" },
+        { "fieldName": "bone-marrow", "dataType": "CATEGORICAL" },
+        { "fieldName": "lung", "dataType": "CATEGORICAL" },
+        { "fieldName": "pleura", "dataType": "CATEGORICAL" },
+        { "fieldName": "peritoneum", "dataType": "CATEGORICAL" },
+        { "fieldName": "liver", "dataType": "CATEGORICAL" },
+        { "fieldName": "brain", "dataType": "CATEGORICAL" },
+        { "fieldName": "skin", "dataType": "CATEGORICAL" },
+        { "fieldName": "neck", "dataType": "CATEGORICAL" },
+        { "fieldName": "supraclavicular", "dataType": "CATEGORICAL" },
+        { "fieldName": "axillar", "dataType": "CATEGORICAL" },
+        { "fieldName": "mediastinum", "dataType": "CATEGORICAL" },
+        { "fieldName": "abdominal", "dataType": "CATEGORICAL" }
+      ]
+    }
+  }
+}
