@@ -3,6 +3,7 @@ Support Vector Classifier in SciKitLearn with LIME explanations for Multi-class 
 - support vector machine
 - support vector classifier
 - multi-class classification
+- XAI
 - sklearn
 - python
 - pandas
