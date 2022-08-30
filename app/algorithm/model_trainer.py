@@ -80,45 +80,42 @@ def preprocess_data(train_data, valid_data, data_schema):
     return train_data, valid_data, preprocess_pipe 
 
 
-def get_resampled_data(X, y):    
+def get_resampled_data(X, y):  
     # if some minority class is observed only 1 time, and a majority class is observed 100 times
     # we dont over-sample the minority class 100 times. We have a limit of how many times
     # we sample. max_resample is that parameter - it represents max number of full population
     # resamples of the minority class. For this example, if max_resample is 3, then, we will only
     # repeat the minority class 2 times over (plus original 1 time). 
     max_resample = model_cfg["max_resample_of_minority_classes"]
+    unique, class_count = np.unique(y, return_counts=True)
+    # class_count = [ int(c) for c in class_count]
+    max_obs_count = max(class_count)
     
-    # class_count = list(y.sum(axis=0))
-    class_counts = np.asarray(np.unique(y, return_counts=True)).T
-    max_obs_count = max(class_counts[:, 1])
     
     resampled_X, resampled_y = [], []
-    for i, count in list(class_counts):
-        count = int(count)
+    for i, count in enumerate(class_count):
         if count == 0: continue
         # find total num_samples to use for this class
         size = max_obs_count if max_obs_count / count < max_resample else count * max_resample
-        size = int(size)
-        # print(i, count, size)
         # if observed class is 50 samples, and we need 125 samples for this class, 
         # then we take the original samples 2 times (equalling 100 samples), and then randomly draw
         # the other 25 samples from among the 50 samples
-        full_samples = size // count
+        
+        full_samples = size // count        
         idx = y == i
         for _ in range(full_samples):
-            resampled_X.append(X[idx, :])
-            resampled_y.append(y[idx])
-            
-        # find the remaining samples to draw randomly
-        remaining =  int(size - count * full_samples   )
-        sampled_idx = np.random.randint(count, size=remaining)
-        resampled_X.append(X[idx, :][sampled_idx, :])
-        resampled_y.append(y[idx][sampled_idx])
-        
-    resampled_X = np.concatenate(resampled_X, axis=0)
-    resampled_y = np.concatenate(resampled_y, axis=0)
-    # print(resampled_X.shape, resampled_y.shape)
+            resampled_X.append(X.loc[idx])
+            resampled_y.append(y.loc[idx])
+        # find the remaining samples to draw randomly        
+        remaining =  size - count * full_samples 
+        idx_list = list(X.loc[idx].index)
+        sampled_idx = np.random.choice(idx_list, size = remaining, replace=True)
+        resampled_X.append(X.iloc[sampled_idx])
+        resampled_y.append(y.iloc[sampled_idx])
+    
+    resampled_X = pd.concat(resampled_X, axis=0, ignore_index=True)    
+    resampled_y = pd.concat(resampled_y, axis=0, ignore_index=True)    
+    
     # shuffle the arrays
     resampled_X, resampled_y = shuffle(resampled_X, resampled_y)
-    
     return resampled_X, resampled_y

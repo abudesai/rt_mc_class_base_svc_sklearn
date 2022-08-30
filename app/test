@@ -36,9 +36,9 @@ def test():
         # read data config
         data_schema = utils.get_data_schema(data_schema_path) 
         # instantiate the trained model (does lazy loading)
-        predictor = model_server.ModelServer(model_path)
+        predictor = model_server.ModelServer(model_path, data_schema)
         # make predictions
-        predictions = predictor.predict_proba(test_data, data_schema)
+        predictions = predictor.predict_proba(test_data)
         # save results 
         utils.save_dataframe(predictions, testing_outputs_path, test_pred_file_name)
         print('Done test predictions.')

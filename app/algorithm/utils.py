@@ -91,4 +91,17 @@ def print_json(result):
 
 def save_dataframe(df, save_path, file_name): 
     df.to_csv(os.path.join(save_path, file_name), index=False)
+
+
+class NpEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super(NpEncoder, self).default(obj)
+    
+    
     

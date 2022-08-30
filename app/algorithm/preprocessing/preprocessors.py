@@ -3,8 +3,10 @@ import numpy as np, pandas as pd
 import sys 
 from abc import ABC, abstractmethod
 from sklearn.preprocessing import LabelEncoder, QuantileTransformer, MinMaxScaler, OneHotEncoder, StandardScaler, PowerTransformer, label_binarize
-
+import re
 from sklearn.base import BaseEstimator, TransformerMixin
+
+
 
 
 class DropNATransformer(BaseEstimator, TransformerMixin):  
@@ -365,7 +367,7 @@ class CustomLabelEncoder(BaseEstimator, TransformerMixin):
             data = data[data[self.target_col] != "__UNK__"]
         return data
     
-    
+
 
 class XYSplitter(BaseEstimator, TransformerMixin): 
     def __init__(self, target_col, id_col):
@@ -376,12 +378,20 @@ class XYSplitter(BaseEstimator, TransformerMixin):
     
     def transform(self, data): 
         if self.target_col in data.columns: 
-            y = data[self.target_col].values
+            y = data[self.target_col]
         else: 
             y = None
         
         not_X_cols = [ self.id_col, self.target_col ] 
-        X_cols = [ col for col in data.columns if col not in not_X_cols ]        
-        X = data[X_cols].values   
+        X_cols = [ col for col in data.columns if col not in not_X_cols ]   
+        
+                     
+        X = data[X_cols]   
+        
+        # # xgb doesnt like any feature names to contain  [, ] or <
+        # regex = re.compile(r"\[|\]|<", re.IGNORECASE)
+        # X_cols = [regex.sub("_", col) if any(x in str(col) for x in set(('[', ']', '<'))) else col for col in X_cols]
+        # X.columns = X_cols
+        
         ids = data[self.id_col].values        
         return { 'X': X, 'y': y, "ids":ids  }

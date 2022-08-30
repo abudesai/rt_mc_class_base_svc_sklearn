@@ -1,4 +1,4 @@
-Support Vector Classifier in SciKitLearn for Multi-class Classification - Base problem category as per Ready Tensor specifications.
+Support Vector Classifier in SciKitLearn with LIME explanations for Multi-class Classification - Base problem category as per Ready Tensor specifications.
 
 - support vector machine
 - support vector classifier
@@ -13,7 +13,9 @@ Support Vector Classifier in SciKitLearn for Multi-class Classification - Base p
 - uvicorn
 - docker
 
-This is a Multi-class Classifier that uses a Random Forest implementation through SciKitLearn. The classifier works by trying to find a boundary between the two different classes of data and aims to maximize the distance between the data points and the boundary.
+This is a Multi-class Classifier that uses a Random Forest implementation through SciKitLearn. Model also includes local explanations with LIME for model interpretability.
+
+The classifier works by trying to find a boundary between the two different classes of data and aims to maximize the distance between the data points and the boundary.
 
 The data preprocessing step includes missing data imputation, standardization, one-hot encoding for categorical variables, datatype casting, etc. The missing categorical values are imputed using the most frequent value if they are rare. Otherwise if the missing value is frequent, they are give a "missing" label instead. Missing numerical values are imputed using the mean and a binary column is added to show a 'missing' indicator for the missing values. Numerical values are also scaled using a Yeo-Johnson transformation in order to get the data close to a Gaussian distribution.
 
