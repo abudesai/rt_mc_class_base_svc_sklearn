@@ -250,12 +250,13 @@ def run_train_and_test(dataset_name, run_hpt, num_hpt_trials):
 
 if __name__ == "__main__": 
     
-    num_hpt_trials = 30
+    num_hpt_trials = 10
     run_hpt_list = [False, True]
-    run_hpt_list = [False]
+    # run_hpt_list = [True]
     
-    datasets = ["car", "primary_tumor", "splice", "statlog", "steel_plate_fault", "wine"]
-    datasets = ["wine"]
+    datasets = ["dna_splice_junction", "gesture_phase", "ipums_census_small", "landsat_satellite", "page_blocks", 
+                "primary_tumor", "soybean_disease", "spotify_genre", "steel_plate_fault", "vehicle_silhouettes"]
+    # datasets = ["primary_tumor"]
     
     for run_hpt in run_hpt_list:
         all_results = []
