@@ -1,12 +1,4 @@
 {
-  "default_fnames": {
-    "def_train_fname": "train.csv",
-    "def_test_fname": "test.csv",
-    "def_schema_fname": "input_schema.json",
-    "preprocessor_fname": "preprocessor.save",
-    "predictions_fname": "predictions.csv",
-    "scoring_fname": "scoring.csv"
-  },
   "pp_params": {
     "cat_params": {
       "max_perc_miss_for_most_freq_impute": 0.1,
@@ -30,15 +22,10 @@
       "NUM_MISSING_MEAN_IMPUTER": "num_missing_mean_imputer",
       "CAT_RARE_LABEL_ENCODER": "rare_label_encoder",
       "MINMAX_BOUNDER": "minmax_bounder",
-      "MINMAX_BOUNDER_TARGET": "minmax_bounder_target",
       "YEO_JOHN_TRANSFORMER": "yeo_john_transformer",
-      "YEO_JOHN_TRANSFORMER_TARGET": "yeo_john_transformer_target",
       "QUINTILE_TRANSFORMER": "quintile_transformer",
-      "QUINTILE_TRANSFORMER_TARGET": "quintile_transformer_target",
       "MIN_MAX_SCALER": "min_max_scaler",
-      "MIN_MAX_SCALER_TARGET": "min_max_scaler_target",
       "STANDARD_SCALER": "standard_scaler",
-      "STANDARD_SCALER_TARGET": "standard_scaler_target",
       "ONE_HOT_ENCODER": "one_hot_encoder",
       "TARGET_ONE_HOT_ENCODER": "target_one_hot_encoder",
       "FEATURE_DROPPER": "feature_dropper",
@@ -57,9 +44,6 @@
     "numeric": "NUMERIC",
     "attr_type": "attributeType",
     "attr_name": "attributeName"
-  },
-  "model_outputs": {
-    "preds_col_name": "predictionFieldName"
   },
   "valid_split": 0.1,
   "max_resample_of_minority_classes": 5

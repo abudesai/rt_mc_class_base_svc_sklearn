@@ -4,8 +4,6 @@ local_test/test_results/
 **/artifacts
 ml_vol/outputs/
 
-docker-compose.yaml
-build_and_push.sh
 venv/
 
 

@@ -1,0 +1,10 @@
+version: "3"
+services:
+  algo_app:
+    container_name: myc
+    build: .
+    volumes:
+      - ./../ml_vol:/opt/ml_vol
+    ports:
+      - 8080:8080
+    command: tail -f /dev/null # keep the container running

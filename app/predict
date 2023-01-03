@@ -17,7 +17,7 @@ data_schema_path = os.path.join(prefix, 'inputs', 'data_config')
 model_path = os.path.join(prefix, 'model', 'artifacts')
 output_path = os.path.join(prefix, 'outputs')
 testing_outputs_path = os.path.join(output_path, 'testing_outputs')
-failure_path = os.path.join(output_path, 'errors', 'test_failure')
+failure_path = os.path.join(output_path, 'errors', 'test_failure.txt')
 
 
 test_pred_file_name = "test_predictions.csv"
@@ -28,7 +28,7 @@ data_path = os.path.join(data_path, channel_name, "multiClassClassificationBaseM
 
 
 # The function to execute the testing.
-def test():    
+def predict():    
     try:        
         print('Starting test predictions')
         # Read data
@@ -47,12 +47,12 @@ def test():
         # Write out an error file. This will be returned as the failureReason to the client.
         trc = traceback.format_exc()
         with open(failure_path, 'w') as s:
-            s.write('Exception during training: ' + str(e) + '\n' + trc)
-        # Printing this causes the exception to be in the training job logs, as well.
-        print('Exception during training: ' + str(e) + '\n' + trc, file=sys.stderr)
-        # A non-zero exit code causes the training job to be marked as Failed.
+            s.write('Exception during prediction: ' + str(e) + '\n' + trc)
+        # Printing this causes the exception to be in the prediction job logs, as well.
+        print('Exception during prediction: ' + str(e) + '\n' + trc, file=sys.stderr)
+        # A non-zero exit code causes the prediction job to be marked as Failed.
         sys.exit(255)
 
 
 if __name__ == '__main__':
-    test()
+    predict()

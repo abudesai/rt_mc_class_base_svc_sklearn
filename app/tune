@@ -18,7 +18,7 @@ model_path = os.path.join(prefix, 'model', 'artifacts')
 hyper_param_path = os.path.join(prefix, 'model', 'model_config')
 output_path = os.path.join(prefix, 'outputs')
 hpt_results_path = os.path.join(output_path, 'hpt_outputs')
-failure_path = os.path.join(output_path, 'errors', 'tune_failure')
+failure_path = os.path.join(output_path, 'errors', 'tune_failure.txt')
 
 channel_name='training'
 training_path = os.path.join(data_path, channel_name, "multiClassClassificationBaseMainInput")
