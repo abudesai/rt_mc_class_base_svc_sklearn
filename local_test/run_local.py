@@ -111,11 +111,6 @@ def copy_example_files(dataset_name):
         f"{local_datapath}/{dataset_name}/{dataset_name}_test.csv",
         os.path.join(test_data_path, f"{dataset_name}_test.csv"),
     )
-    # hyperparameters
-    shutil.copyfile(
-        "./examples/hyperparameters.json",
-        os.path.join(hyper_param_path, "hyperparameters.json"),
-    )
 
 
 def run_HPT(num_hpt_trials):
